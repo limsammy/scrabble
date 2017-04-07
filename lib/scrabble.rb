@@ -4,8 +4,11 @@ class Scrabble
     score = 0
     word.upcase.chars.each do |letter|
       point_values.each do |key, value|
-        if letter == key
+        case letter
+        when key
           score += value
+        when nil
+          score
         end
       end
     end
