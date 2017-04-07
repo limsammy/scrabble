@@ -5,10 +5,11 @@ class WordFinder
 
   def for_letters(letters_collection)
     possible_words = []
-    words.each { |line|
-      unless letters_collection.map { |c| line.include?(c) }.include? false
-        possible_words << line
+    words.each do |word|
+      if (word.chars - letters_collection).empty?
+        possible_words << word
       end
-    }
+    end
+    possible_words
   end
 end
