@@ -13,4 +13,8 @@ class ScrabbleTest < Minitest::Test
   def test_it_can_score_multiple_letters
     assert_equal 8, Scrabble.new.score("hello")
   end
+
+  def test_nil_returns_score_of_zero
+    assert_equal 0, Scrabble.new.score(nil)
+  end
 end

@@ -2,17 +2,19 @@ require 'pry'
 class Scrabble
   def score(word)
     score = 0
-    word.upcase.chars.each do |letter|
-      point_values.each do |key, value|
-        case letter
-        when key
-          score += value
-        when nil
-          score
+    if word != nil
+      word.upcase.chars.each do |letter|
+        point_values.each do |key, value|
+          case letter
+          when key
+            score += value
+          end
         end
       end
+      score
+    else
+      0
     end
-    score
   end
 
   def point_values
