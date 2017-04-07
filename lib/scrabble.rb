@@ -1,7 +1,15 @@
+require 'pry'
 class Scrabble
-
   def score(word)
-    1
+    score = 0
+    word.upcase.chars.each do |letter|
+      point_values.each do |key, value|
+        if letter == key
+          score += value
+        end
+      end
+    end
+    score
   end
 
   def point_values
